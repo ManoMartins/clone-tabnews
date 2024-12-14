@@ -6,11 +6,16 @@
   "scripts": {
     "dev": "npm run services:up && npm run services:wait:database && npm run migrations:up && next dev",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "test": "npm run services:up && concurrently --names next,jest --hide next --kill-others --success command-jest \"next dev\" \"jest --runInBand\"",
     "posttest": "npm run services:stop",
     "test:watch": "jest --watchAll --runInBand --verbose",
 =======
 >>>>>>> f6f5ff5 (refactor: rename `migration` scripts to `migrations`)
+=======
+    "test": "npm run services:up && concurrently --names next,jest --hide next --kill-others --success command-jest \"next dev\" \"jest --runInBand\"",
+    "test:watch": "jest --watchAll --runInBand",
+>>>>>>> 29ecfcf (refactor: move `test` scripts to top)
     "services:up": "docker compose -f infra/compose.yaml up -d",
     "services:stop": "docker compose -f infra/compose.yaml stop",
     "services:down": "docker compose -f infra/compose.yaml down",
@@ -21,11 +26,19 @@
     "lint:prettier:fix": "prettier --write .",
     "lint:eslint:check": "next lint --dir .",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     "test": "npm run services:up && concurrently --names next,jest --hide next --kill-others --success command-jest \"next dev\" \"jest --runInBand\"",
 >>>>>>> b757bd0 (adds `lint:eslint:check` script with `ESLint`)
     "test:watch": "jest --watchAll --runInBand",
 >>>>>>> f6f5ff5 (refactor: rename `migration` scripts to `migrations`)
+=======
+    "test": "npm run services:up && concurrently --names next,jest --hide next --kill-others --success command-jest \"next dev\" \"jest --runInBand\"",
+>>>>>>> b757bd0 (adds `lint:eslint:check` script with `ESLint`)
+    "test:watch": "jest --watchAll --runInBand",
+=======
+>>>>>>> 712a4c7 (refactor: move `test` scripts to top)
+>>>>>>> 29ecfcf (refactor: move `test` scripts to top)
     "prepare": "husky",
     "commit": "cz"
   },
