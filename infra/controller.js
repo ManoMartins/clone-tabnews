@@ -3,6 +3,7 @@ const {
   InternalServerError,
   ValidationError,
   NotFoundError,
+  UnauthorizedError,
 } = require("./errors");
 
 function onNoMatchHandler(request, response) {
@@ -12,13 +13,16 @@ function onNoMatchHandler(request, response) {
 }
 
 function onErrorHandler(err, request, response) {
-  if (err instanceof ValidationError || err instanceof NotFoundError) {
+  if (
+    err instanceof ValidationError ||
+    err instanceof NotFoundError ||
+    err instanceof UnauthorizedError
+  ) {
     return response.status(err.statusCode).json(err);
   }
 
   const publicErrorObject = new InternalServerError({
     cause: err,
-    statusCode: err.statusCode,
   });
 
   console.log("\nErro dentro do catch do next-connect:");
